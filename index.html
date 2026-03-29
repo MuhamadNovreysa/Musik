@@ -214,9 +214,10 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.4;
+            opacity: 0.7;
             pointer-events: none;
-            background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=800&fit=crop') center/cover no-repeat;
+            background: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_00000000ab14720888d34e53a94818d7-uAzNuoJnTT8UR4E0AgoZ2IYakd2l8c.png') center/contain no-repeat;
+            background-color: var(--light);
         }
         .hero-content {
             position: relative;
@@ -507,6 +508,20 @@
 
         /* Footer */
         footer { text-align: center; padding: 2rem; background: var(--soft-gray); color: var(--gray); }
+        
+        /* Desktop footer layout */
+        @media (min-width: 1025px) {
+            #footer-info {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr 1fr !important;
+                gap: 3rem !important;
+                text-align: left !important;
+                margin-top: 2.5rem !important;
+            }
+            #footer-info > div {
+                margin-bottom: 0 !important;
+            }
+        }
 
         /* Back to Top */
         .back-to-top {
@@ -936,7 +951,7 @@
         <h1>Raih Impian Musikmu <br>Bersama <span style="color:#C26E38;">Profesional</span></h1>
         <p>Kursus musik kredibel dengan metode modern, instruktur bersertifikat, dan hasil yang terukur. Dari pemula hingga pro, kami bimbing penuh dedikasi.</p>
         <div class="hero-btns">
-            <button class="btn-primary" onclick="window.location.href='/form'">Les Online <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-primary" onclick="window.location.href='/form.html'">Les Online <i class="fas fa-arrow-right"></i></button>
             <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Lihat Program</button>
         </div>
         <div class="hero-stats">
@@ -1039,13 +1054,13 @@
             <p id="formFeedback" style="font-size: 0.8rem; margin-top: 5px;"></p>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-        <div>
+    <div id="footer-info" style="margin-top: 2.5rem;">
+        <div style="margin-bottom: 2rem;">
             <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Lokasi</p>
             <p style="margin: 0.3rem 0;">Jakarta Pusat</p>
             <p style="margin: 0.3rem 0;">Surabaya</p>
         </div>
-        <div>
+        <div style="margin-bottom: 2rem;">
             <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-phone-alt"></i> Kontak</p>
             <p style="margin: 0.3rem 0;">+62 812 3456 7890</p>
             <p style="margin: 0.3rem 0;">hello@kelasmusik.id</p>
@@ -1245,7 +1260,7 @@
         }
     }
     
-    // ==================== GALLERY (12 gambar) ====================
+    // ==================== GALLERY (11 gambar) ====================
     const galleryImages = [
         "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&h=500&fit=crop",
@@ -1257,7 +1272,6 @@
         "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1511192336575-9a79c445635e?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&h=500&fit=crop"
     ];
     
@@ -1282,7 +1296,7 @@
     
     // ==================== ARTICLES (6 artikel SEO) ====================
     const articlesData = [
-        { title: "10 Teknik Gitar yang Wajib Dikuasai Pemula", meta: "1 April 2025 • 6 min baca", desc: "Pelajari chord dasar hingga teknik picking yang benar agar cepat mahir bermain gitar.", img: "https://images.unsplash.com/photo-1510915362610-c9b64f04395d?w=600&h=400&fit=crop" },
+        { title: "10 Teknik Gitar yang Wajib Dikuasai Pemula", meta: "1 April 2025 • 6 min baca", desc: "Pelajari chord dasar hingga teknik picking yang benar agar cepat mahir bermain gitar.", img: "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&h=400&fit=crop" },
         { title: "Panduan Memilih Kursus Musik yang Kredibel", meta: "25 Maret 2025 • 5 min baca", desc: "Tips memilih tempat kursus dengan kurikulum terbaik dan instruktur profesional bersertifikat.", img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&h=400&fit=crop" },
         { title: "Cara Menjaga Kesehatan Vokal Sebelum Pentas", meta: "18 Maret 2025 • 4 min baca", desc: "Latihan pernapasan dan pemanasan vokal yang efektif untuk penyanyi agar tampil maksimal.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" },
         { title: "Perkembangan Musik Digital: Peluang untuk Musisi", meta: "10 Maret 2025 • 7 min baca", desc: "Manfaatkan teknologi untuk produksi dan distribusi musik Anda di era digital.", img: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop" },
@@ -1369,7 +1383,7 @@
     
     // ==================== FAQ (8 pertanyaan) ====================
     const faqData = [
-        { q: "Apakah ada trial class gratis?", a: "Ya! Kami menyediakan 1x trial class gratis untuk semua program. Silakan hubungi kami untuk jadwal." },
+        { q: "Apakah ada kelas online?", a: "Ya! Kami menyediakan kelas online melalui video call dengan instruktur profesional. Jadwal fleksibel sesuai kebutuhan Anda." },
         { q: "Berapa lama durasi setiap pertemuan?", a: "Setiap pertemuan berdurasi 60 menit untuk kelas reguler, dan 90 menit untuk kelas private." },
         { q: "Apakah ada sertifikat setelah selesai kursus?", a: "Tentu! Setiap siswa yang menyelesaikan level akan mendapatkan sertifikat resmi dari Kelas Musik." },
         { q: "Bisa pilih jadwal sendiri?", a: "Untuk kelas private, jadwal sangat fleksibel. Untuk kelas grup, tersedia beberapa pilihan jadwal." },

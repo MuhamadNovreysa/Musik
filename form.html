@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Les Online - Kelas Musik Indonesia</title>
+    <meta name="description" content="Daftar les online musik dengan instruktur profesional. Fleksibel, nyaman, dan terjangkau.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #C26E38;
+            --primary-dark: #A2572A;
+            --primary-light: #E8A359;
+            --dark: #1E1B1A;
+            --light: #FEFCF5;
+            --gray: #6C5E54;
+            --soft-gray: #F4EFE7;
+            --success: #2E7D32;
+            --shadow-md: 0 15px 35px rgba(0,0,0,0.08);
+            --shadow-lg: 0 25px 50px rgba(0,0,0,0.12);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, var(--soft-gray) 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 2rem 5%;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header .highlight {
+            color: var(--primary);
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Container */
+        .form-wrapper {
+            background: white;
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .form-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-left h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            min-width: 40px;
+        }
+
+        .benefit-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .benefit-text p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #E0D7C8;
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--dark);
+            transition: 0.3s ease;
+            background: #FEFCF5;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(194, 110, 56, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Radio & Checkbox Group */
+        .form-group-radio {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .radio-item {
+            position: relative;
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 1rem;
+            border: 2px solid #E0D7C8;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-weight: 500;
+        }
+
+        .radio-item input[type="radio"]:checked + .radio-label {
+            background: var(--primary-soft);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Checkbox Group */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        /* Button */
+        .btn-submit {
+            width: 100%;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 8px 20px rgba(194, 110, 56, 0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(194, 110, 56, 0.4);
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 10px 20px;
+            background: var(--soft-gray);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: var(--gray-light);
+            color: white;
+        }
+
+        /* Feedback */
+        .form-feedback {
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .form-feedback.success {
+            background: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+            display: block;
+        }
+
+        .form-feedback.error {
+            background: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 4%;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-wrapper {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+
+            .form-group-radio {
+                grid-template-columns: 1fr;
+            }
+
+            .form-left {
+                border-bottom: 2px solid var(--soft-gray);
+                padding-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem 3%;
+            }
+
+            .form-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .form-wrapper {
+                padding: 1.5rem 1.2rem;
+                gap: 1.5rem;
+            }
+
+            input, select, textarea {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+            }
+
+            .form-left h2 {
+                font-size: 1.4rem;
+            }
+
+            .benefit-item {
+                margin-bottom: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+
+        <div class="form-header">
+            <h1>Daftar <span class="highlight">Les Online</span></h1>
+            <p>Belajar musik dengan fleksibel dari rumah. Instruktur profesional siap membimbing Anda kapan saja.</p>
+        </div>
+
+        <div class="form-wrapper">
+            <!-- Left Side - Benefits -->
+            <div class="form-left">
+                <h2>Keuntungan Les Online</h2>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Belajar dari Rumah</h3>
+                        <p>Nyaman dan fleksibel, tanpa perlu perjalanan jauh ke studio.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Jadwal Fleksibel</h3>
+                        <p>Pilih jam yang sesuai dengan kesibukan Anda, kapan saja.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Instruktur Berpengalaman</h3>
+                        <p>Mentor profesional dengan sertifikasi dan pengalaman bertahun-tahun.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-camera-video"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Video Call HD</h3>
+                        <p>Pembelajaran interaktif dengan kualitas video dan audio jernih.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Progress Terukur</h3>
+                        <p>Pantau perkembangan Anda dengan feedback dan evaluasi berkala.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>Sertifikat Resmi</h3>
+                        <p>Dapatkan sertifikat resmi setelah menyelesaikan program.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <form id="lesOnlineForm">
+                <h2 style="font-family: 'Poppins', sans-serif; color: var(--dark); margin-bottom: 1.5rem;">Form Pendaftaran</h2>
+
+                <!-- Data Pribadi -->
+                <div class="form-group">
+                    <label for="fullName">Nama Lengkap *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Nomor WhatsApp *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+62 812 3456 7890" required>
+                </div>
+
+                <!-- Usia & Pengalaman -->
+                <div class="form-group">
+                    <label for="age">Usia *</label>
+                    <input type="number" id="age" name="age" placeholder="Contoh: 20" min="5" max="100" required>
+                </div>
+
+                <!-- Pilih Instrumen -->
+                <div class="form-group">
+                    <label>Instrumen yang Diminati *</label>
+                    <div class="form-group-radio">
+                        <div class="radio-item">
+                            <input type="radio" id="piano" name="instrumen" value="Piano" required>
+                            <label for="piano" class="radio-label"><i class="fas fa-music"></i> Piano</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="guitar" name="instrumen" value="Guitar" required>
+                            <label for="guitar" class="radio-label"><i class="fas fa-guitar"></i> Guitar</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="drum" name="instrumen" value="Drum" required>
+                            <label for="drum" class="radio-label"><i class="fas fa-drum"></i> Drum</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="bass" name="instrumen" value="Bass" required>
+                            <label for="bass" class="radio-label"><i class="fas fa-bass"></i> Bass</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level Pengalaman -->
+                <div class="form-group">
+                    <label for="level">Level Pengalaman *</label>
+                    <select id="level" name="level" required>
+                        <option value="">-- Pilih Level --</option>
+                        <option value="Pemula">Pemula (Belum pernah belajar)</option>
+                        <option value="Dasar">Dasar (Sudah tahu dasar-dasar)</option>
+                        <option value="Menengah">Menengah (Sudah bisa cukup baik)</option>
+                        <option value="Lanjutan">Lanjutan (Sudah mahir)</option>
+                    </select>
+                </div>
+
+                <!-- Alat Musik -->
+                <div class="form-group">
+                    <label>Apakah Anda sudah memiliki instrumen? *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="punya-ya" name="punya_alat" value="Ya" required>
+                            <label for="punya-ya">Ya, sudah punya</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="punya-tidak" name="punya_alat" value="Tidak" required>
+                            <label for="punya-tidak">Belum punya, belajar dulu</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Target Pembelajaran -->
+                <div class="form-group">
+                    <label>Target Pembelajaran (Pilih min. 1) *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="target-dasar" name="target" value="Menguasai dasar-dasar">
+                            <label for="target-dasar">Menguasai dasar-dasar instrumen</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="target-lagu" name="target" value="Bisa main lagu favorit">
+                            <label for="target-lagu">Bisa memainkan lagu favorit</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="target-hobi" name="target" value="Mengembangkan hobi">
+                            <label for="target-hobi">Mengembangkan hobi bermain musik</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="target-profesional" name="target" value="Persiapan profesional">
+                            <label for="target-profesional">Persiapan untuk menjadi profesional</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jadwal Preferensi -->
+                <div class="form-group">
+                    <label for="jadwal">Preferensi Jadwal *</label>
+                    <select id="jadwal" name="jadwal" required>
+                        <option value="">-- Pilih Jadwal --</option>
+                        <option value="Pagi (08:00 - 12:00)">Pagi (08:00 - 12:00)</option>
+                        <option value="Siang (12:00 - 17:00)">Siang (12:00 - 17:00)</option>
+                        <option value="Sore (17:00 - 21:00)">Sore (17:00 - 21:00)</option>
+                        <option value="Malam (19:00 - 21:00)">Malam (19:00 - 21:00)</option>
+                        <option value="Fleksibel">Fleksibel (sesuaikan dengan instruktur)</option>
+                    </select>
+                </div>
+
+                <!-- Pesan Tambahan -->
+                <div class="form-group">
+                    <label for="pesan">Pesan Tambahan</label>
+                    <textarea id="pesan" name="pesan" placeholder="Tuliskan informasi atau pertanyaan tambahan..."></textarea>
+                </div>
+
+                <!-- Button -->
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Daftar Sekarang
+                </button>
+
+                <div id="formFeedback" class="form-feedback"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('lesOnlineForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const instrumen = document.querySelector('input[name="instrumen"]:checked');
+            const level = document.getElementById('level').value;
+            const punyaAlat = document.querySelector('input[name="punya_alat"]:checked');
+            const target = document.querySelectorAll('input[name="target"]:checked');
+            const jadwal = document.getElementById('jadwal').value;
+            const feedback = document.getElementById('formFeedback');
+
+            // Validation
+            if (!fullName || !email || !phone || !age) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Mohon isi semua field yang bertanda *';
+                return;
+            }
+
+            if (!instrumen) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Pilih instrumen yang diminati';
+                return;
+            }
+
+            if (!level) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Pilih level pengalaman Anda';
+                return;
+            }
+
+            if (!punyaAlat) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Jawab pertanyaan tentang instrumen';
+                return;
+            }
+
+            if (target.length === 0) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Pilih minimal 1 target pembelajaran';
+                return;
+            }
+
+            if (!jadwal) {
+                feedback.classList.add('error');
+                feedback.classList.remove('success');
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Pilih preferensi jadwal';
+                return;
+            }
+
+            // Success
+            feedback.classList.add('success');
+            feedback.classList.remove('error');
+            feedback.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Terima kasih! Data Anda sudah kami terima. Tim kami akan menghubungi Anda dalam 1x24 jam.';
+
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('lesOnlineForm').reset();
+                feedback.classList.remove('success');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

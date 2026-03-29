@@ -294,6 +294,11 @@
             gap: 2rem;
             margin-top: 2rem;
         }
+        .service-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+        }
         .service-card {
             background: white;
             border-radius: 32px;
@@ -1131,8 +1136,14 @@
         if(container) {
             container.innerHTML = servicesData.map((s, idx) => `
                 <div class="service-card" data-aos="zoom-in" data-aos-delay="${idx * 50}">
-                    <div class="service-icon"><i class="fas ${s.icon}"></i></div>
-                    <h3>${s.title}</h3>
+                    <div class="service-icon">
+    ${
+        s.isImage
+        ? `<img src="${s.icon}" alt="${s.title}" class="service-img">`
+        : `<i class="${s.icon}"></i>`
+    }
+</div>
+<h3>${s.title}</h3>
                     <p>${s.desc}</p>
                     <button class="btn-outline btn-small" style="margin-top: 1rem;" onclick="alert('Info lebih lanjut hubungi kontak kami')">Detail <i class="fas fa-arrow-right"></i></button>
                 </div>

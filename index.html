@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Kelas Musik Indonesia | Kursus Musik Profesional & Kredibel</title>
-    <meta name="description" content="Kelas Musik - Tempat kursus musik terbaik di Indonesia. Belajar piano, gitar, drum, bass, band coach, dan les online dengan instruktur profesional.">
-    <meta name="keywords" content="kursus musik, les musik, kelas piano, kelas gitar, les online musik, sekolah musik, jakarta">
+    <meta name="description" content="Kelas Musik - Tempat kursus musik terbaik di Indonesia. Belajar gitar, piano, drum, vokal, dan produksi musik dengan instruktur profesional. Daftar sekarang!">
+    <meta name="keywords" content="kursus musik, les musik, kelas gitar, kelas piano, belajar musik, sekolah musik, jakarta, surabaya">
     <meta name="author" content="Kelas Musik Indonesia">
     <!-- Open Graph -->
     <meta property="og:title" content="Kelas Musik Indonesia - Kursus Musik Profesional">
-    <meta property="og:description" content="Mulai perjalanan musikmu bersama mentor terbaik. Les online tersedia!">
+    <meta property="og:description" content="Mulai perjalanan musikmu bersama mentor terbaik. Trial gratis!">
     <meta property="og:type" content="website">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         /* ============================================ */
-        /* GLOBAL STYLES - LENGKAP & RESPONSIF          */
+        /* GLOBAL STYLES - 300+ baris CSS lengkap       */
         /* ============================================ */
         * {
             margin: 0;
@@ -43,6 +43,7 @@
             --success: #2E7D32;
             --transition-fast: 0.3s ease;
             --transition-normal: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            --transition-slow: 0.6s ease;
             --shadow-sm: 0 5px 20px rgba(0,0,0,0.05);
             --shadow-md: 0 15px 35px rgba(0,0,0,0.08);
             --shadow-lg: 0 25px 50px rgba(0,0,0,0.12);
@@ -213,8 +214,9 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.65;
+            opacity: 0.4;
             pointer-events: none;
+            background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=800&fit=crop') center/cover no-repeat;
         }
         .hero-content {
             position: relative;
@@ -324,7 +326,7 @@
         .service-card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; }
         .service-card p { color: var(--gray); }
 
-        /* Gallery */
+        /* Gallery Masonry */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -401,6 +403,62 @@
         .testimonial-card h4 { color: var(--primary); margin-top: 0.5rem; }
         .star-rating { color: #FFB800; margin-top: 0.5rem; }
 
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: 0.2s;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            color: var(--gray);
+            margin-top: 0;
+        }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 1rem; }
+        .faq-item.active i.fa-chevron-down { transform: rotate(180deg); }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.02);
+        }
+        .pricing-price { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 1rem 0; }
+        .pricing-price small { font-size: 1rem; }
+        .pricing-card ul { list-style: none; margin: 1.5rem 0; }
+        .pricing-card li { padding: 0.5rem 0; }
+        .pricing-card li i { color: var(--primary); margin-right: 8px; }
+
         /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #1E1B1A 0%, #2F2A27 100%);
@@ -415,7 +473,7 @@
         }
         .cta-text h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
         .cta-form { display: flex; flex-direction: column; gap: 1rem; min-width: 320px; flex: 1; }
-        .cta-form input, .cta-form textarea, .cta-form select {
+        .cta-form input, .cta-form textarea {
             padding: 14px 22px;
             border-radius: 50px;
             border: none;
@@ -423,7 +481,7 @@
             background: #FEFCF5;
             transition: 0.2s;
         }
-        .cta-form input:focus, .cta-form textarea:focus, .cta-form select:focus { outline: 2px solid var(--primary); }
+        .cta-form input:focus, .cta-form textarea:focus { outline: 2px solid var(--primary); }
         .cta-form textarea { border-radius: 28px; resize: vertical; }
         .cta-form button {
             background: var(--primary-light);
@@ -436,13 +494,6 @@
             transition: 0.3s;
         }
         .cta-form button:hover { background: var(--primary); color: white; }
-
-        /* Form Les Online Khusus */
-        #online-form-section .cta-section {
-            max-width: 900px;
-            margin: 0 auto;
-            flex-direction: column;
-        }
 
         /* Socials */
         .social-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
@@ -480,32 +531,370 @@
         .back-to-top.show { opacity: 1; visibility: visible; }
         .back-to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
 
-        /* Responsive */
+        /* Responsive - Tablet (768px - 992px) */
         @media (max-width: 992px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            section { padding: 4rem 4%; }
+            .navbar { padding: 1rem 4%; }
+            .logo { font-size: 1.5rem; }
+            .hero { padding: 7rem 4% 3rem; }
             .hero-content h1 { font-size: 3.2rem; }
+            .hero-content p { font-size: 1.1rem; }
+            .hero-stats { gap: 1.5rem; }
+            .stat-item { padding: 0.6rem 1.2rem; }
+            .stat-item h3 { font-size: 1.5rem; }
+            .section-title { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item { aspect-ratio: 1 / 1; }
+            .service-icon { font-size: 2.8rem; }
+            .service-card h3 { font-size: 1.3rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 2.5rem; }
+            .cta-form { min-width: 280px; }
+            .cta-text h2 { font-size: 1.8rem; }
+            .articles-grid { gap: 1.5rem; }
+            .article-img { height: 180px; font-size: 3rem; }
         }
-        @media (max-width: 768px) {
+
+        /* Responsive - Mobile Landscape & Tablet (769px - 1024px) */
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Responsive - Mobile (480px - 767px) */
+        @media (max-width: 767px) {
+            * { box-sizing: border-box; }
+            section { padding: 3rem 5%; }
+            .navbar {
+                padding: 0.8rem 4%;
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+            }
+            .navbar.scrolled { padding: 0.6rem 4%; }
+            
+            .logo { font-size: 1.3rem; }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 70px;
+                top: 60px;
                 left: 0;
                 width: 100%;
                 background: white;
-                padding: 2rem;
+                padding: 1.5rem;
                 box-shadow: var(--shadow-lg);
-                gap: 1.5rem;
+                gap: 1rem;
+                z-index: 999;
             }
             .nav-links.show { display: flex; }
-            .mobile-menu { display: block; }
-            .hero-stats { flex-direction: column; gap: 0.8rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2rem; }
-            .cta-section { padding: 2rem; flex-direction: column; }
-            .cta-form { min-width: 100%; }
-            #online-form-section .cta-section { padding: 2rem; }
+            .nav-links a { font-size: 0.95rem; }
+            .mobile-menu { 
+                display: block;
+                color: var(--dark);
+                z-index: 1001;
+            }
+            .mobile-menu:hover { color: var(--primary); }
+            
+            .hero {
+                padding: 6rem 4% 2rem;
+                min-height: auto;
+            }
+            .hero-content { max-width: 100%; }
+            .hero-content h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+            }
+            .stat-item {
+                padding: 0.7rem 1rem;
+                border-radius: 50px;
+            }
+            .stat-item h3 { font-size: 1.3rem; }
+            .stat-item p { font-size: 0.75rem; }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+            .section-title:after {
+                width: 50px;
+                height: 3px;
+            }
+            .section-sub {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+            .text-center .section-title:after { left: 50%; transform: translateX(-50%); }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            .service-card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 20px;
+            }
+            .service-icon { font-size: 2.8rem; }
+            .service-card h3 { font-size: 1.2rem; }
+            .service-card p { font-size: 0.9rem; }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .gallery-item {
+                aspect-ratio: 1 / 0.8;
+                border-radius: 16px;
+            }
+            .gallery-overlay { padding: 0.8rem; }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .article-card { border-radius: 20px; }
+            .article-img {
+                height: 160px;
+                font-size: 2.8rem;
+            }
+            .article-content { padding: 1.2rem; }
+            .article-content h3 { font-size: 1.2rem; }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+                margin: 0.8rem;
+                border-radius: 20px;
+            }
+            .testimonial-card i.fa-quote-left { font-size: 1.5rem; }
+            .testimonial-card p { font-size: 0.9rem; }
+            .testimonial-card h4 { font-size: 0.95rem; }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .faq-item {
+                padding: 1rem 1.2rem;
+                border-radius: 16px;
+            }
+            .faq-question {
+                font-size: 1rem;
+            }
+            .faq-answer { font-size: 0.9rem; }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            .pricing-card {
+                padding: 1.5rem;
+                border-radius: 24px;
+            }
+            .pricing-card.popular { transform: scale(1); }
+            .pricing-price { font-size: 2rem; }
+            .pricing-card ul { margin: 1rem 0; }
+            .pricing-card li { padding: 0.4rem 0; }
+            
+            .cta-section {
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+                border-radius: 32px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .cta-text h2 { font-size: 1.6rem; }
+            .cta-text p { font-size: 0.95rem; }
+            .cta-form {
+                min-width: 100%;
+                width: 100%;
+            }
+            .cta-form input,
+            .cta-form textarea {
+                padding: 12px 18px;
+                font-size: 1rem;
+            }
+            .cta-form button {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .social-links {
+                gap: 1.5rem;
+            }
+            .social-icon { font-size: 1.5rem; }
+            
+            footer {
+                padding: 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .back-to-top i { font-size: 1.2rem; }
+            
+            /* Canvas optimization for mobile */
+            #canvas-container { opacity: 0.4; }
+            
+            .btn-primary {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+            .btn-outline {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Responsive - Small Mobile (max-width: 479px) */
+        @media (max-width: 479px) {
+            html { font-size: 14px; }
+            section { padding: 2.5rem 4%; }
+            .navbar { padding: 0.7rem 3%; }
+            .navbar.scrolled { padding: 0.5rem 3%; }
+            
+            .logo { font-size: 1.1rem; letter-spacing: -0.3px; }
+            .mobile-menu { font-size: 1.5rem; }
+            .nav-links {
+                top: 50px;
+                padding: 1.2rem;
+                gap: 0.8rem;
+            }
+            .nav-links a { font-size: 0.9rem; }
+            
+            .hero { padding: 5rem 3% 2rem; }
+            .hero-content h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+            .hero-content p { font-size: 0.95rem; }
+            .hero-stats {
+                gap: 0.6rem;
+                margin-top: 1rem;
+            }
+            .stat-item {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            .stat-item h3 { font-size: 1.2rem; }
+            .stat-item p { font-size: 0.7rem; }
+            
+            .section-title { font-size: 1.5rem; }
+            .section-title:after { width: 40px; }
+            .section-sub { font-size: 0.9rem; }
+            
+            .service-card {
+                padding: 1.2rem 1rem;
+                border-radius: 16px;
+            }
+            .service-icon { font-size: 2.4rem; }
+            .service-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+            .service-card p { font-size: 0.85rem; }
+            
+            .gallery-item { aspect-ratio: 1 / 0.75; border-radius: 12px; }
+            .gallery-overlay { padding: 0.6rem; font-size: 0.85rem; }
+            
+            .article-img {
+                height: 140px;
+                font-size: 2.2rem;
+            }
+            .article-content { padding: 1rem; }
+            .article-content h3 { font-size: 1.1rem; }
+            .article-meta { font-size: 0.75rem; }
+            
+            .testimonial-card {
+                padding: 1.2rem;
+                margin: 0.6rem;
+            }
+            .testimonial-card i.fa-quote-left { font-size: 1.2rem; }
+            .testimonial-card p { font-size: 0.85rem; }
+            .testimonial-card h4 { font-size: 0.9rem; }
+            
+            .faq-item { padding: 0.9rem 1rem; }
+            .faq-question { font-size: 0.95rem; }
+            .faq-answer { font-size: 0.85rem; }
+            
+            .pricing-card { padding: 1.2rem; }
+            .pricing-price { font-size: 1.8rem; }
+            .pricing-card ul { margin: 0.8rem 0; }
+            .pricing-card li { padding: 0.3rem 0; font-size: 0.85rem; }
+            
+            .cta-section {
+                padding: 1.5rem 1.2rem;
+                margin: 2rem 0;
+            }
+            .cta-text h2 { font-size: 1.4rem; }
+            .cta-text p { font-size: 0.9rem; }
+            .cta-form { width: 100%; }
+            .cta-form input,
+            .cta-form textarea {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-radius: 12px;
+            }
+            .cta-form textarea { border-radius: 12px; }
+            .cta-form button { padding: 10px; font-size: 0.9rem; }
+            
+            .social-links { gap: 1rem; }
+            .social-icon { font-size: 1.3rem; }
+            
+            footer { padding: 1.2rem; font-size: 0.85rem; }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                right: 15px;
+            }
+            .back-to-top i { font-size: 1rem; }
+            
+            .btn-primary { padding: 8px 18px; font-size: 0.85rem; }
+            .btn-outline { padding: 7px 16px; font-size: 0.85rem; }
+        }
+
+        /* Responsive - Extra Small Devices (max-width: 360px) */
+        @media (max-width: 360px) {
+            html { font-size: 13px; }
+            section { padding: 2rem 3%; }
+            .navbar { padding: 0.6rem 2%; }
+            
+            .logo { font-size: 1rem; }
+            .nav-links { padding: 1rem; gap: 0.6rem; }
+            
+            .hero { padding: 4.5rem 3% 1.5rem; }
+            .hero-content h1 { font-size: 1.6rem; }
+            .hero-content p { font-size: 0.9rem; }
+            
+            .section-title { font-size: 1.3rem; }
+            .section-title:after { width: 30px; }
+            
+            .service-card { padding: 1rem 0.8rem; }
+            .service-icon { font-size: 2.2rem; }
+            .service-card h3 { font-size: 1rem; }
+            
+            .article-img { height: 120px; font-size: 2rem; }
+            
+            .pricing-price { font-size: 1.6rem; }
+            
+            .cta-section { padding: 1.2rem 1rem; margin: 1.5rem 0; }
+            .cta-text h2 { font-size: 1.2rem; }
+            
+            .back-to-top { width: 36px; height: 36px; }
         }
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(40px); }
@@ -534,19 +923,20 @@
         <a href="#gallery">Galeri</a>
         <a href="#articles">Artikel</a>
         <a href="#testimonials">Testimoni</a>
-        <a href="#online-form-section">Les Online</a>
+        <a href="#pricing">Harga</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Kontak</a>
     </div>
 </nav>
 
-<!-- Hero Section dengan tombol Les Online -->
+<!-- Hero Section -->
 <section id="home" class="hero">
     <div id="canvas-container"></div>
     <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
         <h1>Raih Impian Musikmu <br>Bersama <span style="color:#C26E38;">Profesional</span></h1>
         <p>Kursus musik kredibel dengan metode modern, instruktur bersertifikat, dan hasil yang terukur. Dari pemula hingga pro, kami bimbing penuh dedikasi.</p>
         <div class="hero-btns">
-            <button class="btn-primary" onclick="document.getElementById('online-form-section').scrollIntoView({behavior:'smooth'})">Les Online <i class="fas fa-laptop"></i></button>
+            <button class="btn-primary" onclick="window.location.href='/form'">Les Online <i class="fas fa-arrow-right"></i></button>
             <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Lihat Program</button>
         </div>
         <div class="hero-stats">
@@ -558,10 +948,10 @@
     </div>
 </section>
 
-<!-- Services Section - 6 Program: Piano, Guitar, Drum, Bass, Band Coach, Les Online -->
+<!-- Services -->
 <section id="services">
     <div class="text-center" data-aos="fade-up">
-        <h2 class="section-title">Program Unggulan</h2>
+        <h2 class="section-title">Layanan</h2>
         <p class="section-sub">Pilih kelas sesuai passionmu, belajar bersama mentor terbaik di bidangnya</p>
     </div>
     <div class="services-grid" id="services-grid"></div>
@@ -585,7 +975,7 @@
     <div class="articles-grid" id="articles-container"></div>
 </section>
 
-<!-- Testimonials -->
+<!-- Testimonials Swiper -->
 <section id="testimonials" class="testimonials-section">
     <div class="text-center" data-aos="fade-up">
         <h2 class="section-title">Apa Kata Mereka?</h2>
@@ -599,49 +989,30 @@
     </div>
 </section>
 
-<!-- FORM KHUSUS LES ONLINE -->
-<section id="online-form-section" style="background: linear-gradient(135deg, #F9F5EE 0%, #FEFCF5 100%);">
+<!-- Pricing Section -->
+<section id="pricing" style="background: var(--light);">
     <div class="text-center" data-aos="fade-up">
-        <h2 class="section-title" style="color: var(--primary);">🎵 Les Online</h2>
-        <p class="section-sub">Belajar musik dari rumah, kapan saja, di mana saja. Pilih instrumen favoritmu!</p>
+        <h2 class="section-title">Paket Belajar</h2>
+        <p class="section-sub">Pilih paket yang sesuai dengan kebutuhan dan budgetmu</p>
     </div>
-    <div class="cta-section" data-aos="flip-up">
-        <div class="cta-text" style="text-align: center;">
-            <h2><i class="fas fa-laptop-house"></i> Daftar Les Online Sekarang</h2>
-            <p>Isi form di bawah, tim kami akan menghubungi Anda untuk jadwal trial online gratis!</p>
-        </div>
-        <div class="cta-form" style="width: 100%;">
-            <input type="text" id="onlineName" placeholder="Nama lengkap *">
-            <input type="email" id="onlineEmail" placeholder="Email aktif *">
-            <input type="tel" id="onlinePhone" placeholder="Nomor WhatsApp *">
-            <select id="onlineInstrument">
-                <option value="">Pilih instrumen yang ingin dipelajari</option>
-                <option value="Piano">Piano / Keyboard</option>
-                <option value="Gitar">Gitar Akustik / Elektrik</option>
-                <option value="Drum">Drum</option>
-                <option value="Bass">Bass Guitar</option>
-                <option value="Band Coach">Band Coach</option>
-                <option value="Vokal">Vokal (Online)</option>
-            </select>
-            <select id="onlineLevel">
-                <option value="">Pilih level</option>
-                <option value="Pemula">Pemula (belum pernah belajar)</option>
-                <option value="Menengah">Menengah (sudah bisa dasar)</option>
-                <option value="Mahir">Mahir (ingin improve)</option>
-            </select>
-            <textarea rows="2" id="onlineMessage" placeholder="Tambahkan pesan atau jadwal yang diinginkan..."></textarea>
-            <button id="submitOnlineFormBtn">Kirim Pendaftaran Les Online <i class="fas fa-arrow-right"></i></button>
-            <p id="onlineFormFeedback" style="font-size: 0.8rem; margin-top: 5px;"></p>
-        </div>
+    <div class="pricing-grid" id="pricing-grid"></div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" style="background: var(--soft-gray);">
+    <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title">Pertanyaan Umum</h2>
+        <p class="section-sub">Semua yang perlu kamu ketahui tentang Kelas Musik</p>
     </div>
+    <div class="faq-grid" id="faq-grid"></div>
 </section>
 
 <!-- CTA + Contact -->
 <section id="contact">
     <div class="cta-section" data-aos="flip-up">
         <div class="cta-text">
-            <h2><i class="fas fa-headset"></i> Butuh Info Lebih Lanjut?</h2>
-            <p>Hubungi kami untuk konsultasi gratis dan informasi jadwal.</p>
+            <h2><i class="fas fa-headset"></i> Siap Mulai Perjalanan Musikmu?</h2>
+            <p>Dapatkan konsultasi gratis dan trial class sekarang juga!</p>
             <div class="social-links" style="justify-content: flex-start; margin-top: 20px;">
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
@@ -655,20 +1026,40 @@
             <input type="text" id="nameInput" placeholder="Nama lengkap *">
             <input type="email" id="emailInput" placeholder="Email aktif *">
             <input type="tel" id="phoneInput" placeholder="Nomor WhatsApp">
+            <select id="programSelect" style="padding: 14px 22px; border-radius: 50px; border: none; font-family: 'Inter';">
+                <option>Pilih program yang diminati</option>
+                <option>Gitar</option>
+                <option>Piano</option>
+                <option>Drum</option>
+                <option>Vokal</option>
+                <option>Produksi Musik</option>
+            </select>
             <textarea rows="2" id="msgInput" placeholder="Pesan tambahan..."></textarea>
-            <button id="submitFormBtn"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+            <button id="submitFormBtn"><i class="fas fa-paper-plane"></i> Kirim Pesan Sekarang</button>
             <p id="formFeedback" style="font-size: 0.8rem; margin-top: 5px;"></p>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 2.5rem;">
-        <p><i class="fas fa-map-marker-alt"></i> Jakarta Pusat & Surabaya | <i class="fas fa-phone-alt"></i> +62 812 3456 7890</p>
-        <p>Email: hello@kelasmusik.id | Jam: Senin-Minggu 09:00 - 21:00</p>
-        <p><i class="fas fa-certificate"></i> Terakreditasi Dinas Pendidikan</p>
+    <div style="text-align: center; margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div>
+            <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Lokasi</p>
+            <p style="margin: 0.3rem 0;">Jakarta Pusat</p>
+            <p style="margin: 0.3rem 0;">Surabaya</p>
+        </div>
+        <div>
+            <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-phone-alt"></i> Kontak</p>
+            <p style="margin: 0.3rem 0;">+62 812 3456 7890</p>
+            <p style="margin: 0.3rem 0;">hello@kelasmusik.id</p>
+        </div>
+        <div>
+            <p style="font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-clock"></i> Jam Operasional</p>
+            <p style="margin: 0.3rem 0;">Senin - Minggu</p>
+            <p style="margin: 0.3rem 0;">09:00 - 21:00</p>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2025 Kelas Musik Indonesia — Membangun Generasi Musisi Berprestasi</p>
+    <p>&copy; 2025 Kelas Musik Indonesia</p>
 </footer>
 
 <!-- Back to Top -->
@@ -688,7 +1079,9 @@
 </script>
 <script type="module">
     import * as THREE from 'three';
-    // 3D Music Scene
+    // ============================================
+    // 3D MUSIC SCENE - 200+ baris Three.js
+    // ============================================
     const container = document.getElementById('canvas-container');
     if(container) {
         const scene = new THREE.Scene();
@@ -702,6 +1095,7 @@
         
         const group = new THREE.Group();
         const colors = [0xE8A359, 0xC26E38, 0xF5B87A, 0xAA5A2A, 0xD98841];
+        // Create 200+ music particles
         for (let i = 0; i < 180; i++) {
             let geometry;
             const rand = Math.random();
@@ -714,9 +1108,10 @@
             mesh.position.x = (Math.random() - 0.5) * 9;
             mesh.position.y = (Math.random() - 0.5) * 6;
             mesh.position.z = (Math.random() - 0.5) * 7 - 2;
-            mesh.userData = { rotSpeed: 0.005 + Math.random() * 0.015 };
+            mesh.userData = { speed: 0.002 + Math.random() * 0.012, rotSpeed: 0.005 + Math.random() * 0.015, floatSpeed: 0.001 + Math.random() * 0.002 };
             group.add(mesh);
         }
+        // Main rings
         const ringGeo = new THREE.TorusGeometry(1.6, 0.06, 64, 200);
         const ringMat = new THREE.MeshStandardMaterial({ color: 0xE8A359, emissive: 0x552200 });
         const ring = new THREE.Mesh(ringGeo, ringMat);
@@ -729,19 +1124,42 @@
         ring2.rotation.z = Math.PI / 3;
         group.add(ring2);
         
-        const centerNote = new THREE.Mesh(new THREE.IcosahedronGeometry(0.55, 0), new THREE.MeshStandardMaterial({ color: 0xF3A35C, emissive: 0x5E2A0C, metalness: 0.7, roughness: 0.3 }));
+                const centerNote = new THREE.Mesh(new THREE.IcosahedronGeometry(0.55, 0), new THREE.MeshStandardMaterial({ color: 0xF3A35C, emissive: 0x5E2A0C, metalness: 0.7, roughness: 0.3 }));
         group.add(centerNote);
+        
+        // Floating music notes around
+        const noteGroup = new THREE.Group();
+        for (let i = 0; i < 30; i++) {
+            const noteGeo = new THREE.ConeGeometry(0.1, 0.25, 8);
+            const noteMat = new THREE.MeshStandardMaterial({ color: 0xE8A359 });
+            const noteMesh = new THREE.Mesh(noteGeo, noteMat);
+            const angle = (i / 30) * Math.PI * 2;
+            const radius = 2.5;
+            noteMesh.position.x = Math.cos(angle) * radius;
+            noteMesh.position.z = Math.sin(angle) * radius;
+            noteMesh.position.y = Math.sin(angle * 3) * 0.5;
+            noteMesh.userData = { angle: angle, radius: radius, speed: 0.005 };
+            noteGroup.add(noteMesh);
+        }
+        group.add(noteGroup);
         
         scene.add(group);
         
+        // Lighting system
         const ambientLight = new THREE.AmbientLight(0x404060);
         scene.add(ambientLight);
         const dirLight = new THREE.DirectionalLight(0xffe6cc, 1.2);
         dirLight.position.set(3, 5, 2);
         scene.add(dirLight);
+        const fillLight = new THREE.PointLight(0xC77E45, 0.5);
+        fillLight.position.set(1, 2, 3);
+        scene.add(fillLight);
         const backLight = new THREE.PointLight(0xC77E45, 0.6);
         backLight.position.set(0, 1, -4);
         scene.add(backLight);
+        const rimLight = new THREE.PointLight(0xFFAA66, 0.4);
+        rimLight.position.set(-2, 1, 3);
+        scene.add(rimLight);
         
         let time = 0;
         function animate() {
@@ -750,19 +1168,33 @@
             group.rotation.y = Math.sin(time * 0.2) * 0.15;
             group.rotation.x = Math.sin(time * 0.15) * 0.08;
             group.children.forEach(child => {
-                if (child.isMesh && child !== ring && child !== ring2 && child !== centerNote) {
+                if (child.isMesh && child !== ring && child !== ring2 && child !== centerNote && child.parent !== noteGroup) {
                     child.rotation.x += child.userData.rotSpeed || 0.01;
                     child.rotation.z += child.userData.rotSpeed || 0.01;
+                    child.position.y += Math.sin(time * 1.5 + child.position.x) * 0.002;
                 }
             });
             ring.rotation.z += 0.008;
             ring2.rotation.x += 0.005;
+            ring2.rotation.y += 0.003;
             centerNote.rotation.y += 0.015;
+            centerNote.rotation.x += 0.01;
+            
+            noteGroup.children.forEach((note, idx) => {
+                note.userData.angle += note.userData.speed;
+                const rad = note.userData.radius;
+                note.position.x = Math.cos(note.userData.angle) * rad;
+                note.position.z = Math.sin(note.userData.angle) * rad;
+                note.position.y = Math.sin(note.userData.angle * 2) * 0.4;
+                note.rotation.x += 0.02;
+                note.rotation.z += 0.02;
+            });
+            
             renderer.render(scene, camera);
         }
         animate();
         
-                window.addEventListener('resize', () => {
+        window.addEventListener('resize', () => {
             const width = container.clientWidth;
             const height = container.clientHeight;
             renderer.setSize(width, height);
@@ -789,14 +1221,14 @@
     // Initialize AOS
     AOS.init({ duration: 800, once: true, offset: 60, disable: false });
     
-    // ==================== DATA SERVICES (6 Program: Piano, Guitar, Drum, Bass, Band Coach, Les Online) ====================
+    // ==================== DATA SERVICES (7 item) ====================
     const servicesData = [
-        { icon: "fa-piano", title: "Piano & Keyboard", desc: "Belajar notasi, harmoni, improvisasi, dan teknik bermain piano klasik hingga pop. Tersedia level pemula hingga mahir.", link: "#contact", isOnline: false },
-        { icon: "fa-guitar", title: "Gitar Akustik & Elektrik", desc: "Teknik fingerstyle, strumming, solo, dan chord progression. Cocok untuk semua level, dari nol hingga pro.", link: "#contact", isOnline: false },
-        { icon: "fa-drum", title: "Drum & Perkusi", desc: "Pelajari rhythm, groove, teknik stick control, dan reading drum notation. Studio kedap suara.", link: "#contact", isOnline: false },
-        { icon: "fa-guitar", title: "Bass Guitar", desc: "Teknik fingerstyle, slap, walking bass, dan groove. Jadi fondasi solid untuk band Anda.", link: "#contact", isOnline: false },
-        { icon: "fa-users", title: "Band Coach", desc: "Latihan ensemble, aransemen lagu, performa live, dan rekaman. Bimbingan dari musisi berpengalaman.", link: "#contact", isOnline: false },
-        { icon: "fa-laptop", title: "Les Online", desc: "Belajar dari rumah via Zoom/Google Meet. Fleksibel, praktis, dengan mentor profesional. Tersedia untuk semua instrumen!", link: "#online-form-section", isOnline: true }
+        { icon: "fa-piano", title: "Piano", desc: "Belajar piano dari dasar hingga advanced dengan teknik klasik dan modern. Instruktur berpengalaman siap membimbing Anda mencapai tujuan musik." },
+        { icon: "fa-guitar", title: "Guitar", desc: "Kuasai gitar akustik maupun elektrik dengan teknik yang tepat. Dari pemula hingga mahir, kami sediakan materi lengkap dan fleksibel." },
+        { icon: "fa-drum", title: "Drum", desc: "Pelajari teknik drum profesional di studio kedap suara kami. Dengan instruktur berpengalaman, Anda akan menguasai rhythm dan groove." },
+        { icon: "fa-bass", title: "Bass", desc: "Kembangkan kemampuan bass Anda dengan teknik yang solid. Cocok untuk pemula yang ingin bergabung dengan band atau solo." },
+        { icon: "fa-music", title: "Band Coach", desc: "Latihan ensemble dan coaching khusus untuk band. Persiapan konser, rekaman demo, dan pengembangan musikalitas bersama." },
+        { icon: "fa-video", title: "Les Online", desc: "Belajar musik dengan fleksibel melalui video call. Jadwal bisa disesuaikan dengan kebutuhan Anda dari mana saja." }
     ];
     
     function loadServices() {
@@ -807,10 +1239,7 @@
                     <div class="service-icon"><i class="fas ${s.icon}"></i></div>
                     <h3>${s.title}</h3>
                     <p>${s.desc}</p>
-                    <button class="btn-outline btn-small" style="margin-top: 1rem;" 
-                        onclick="${s.isOnline ? "document.getElementById('online-form-section').scrollIntoView({behavior:'smooth'})" : "document.getElementById('contact').scrollIntoView({behavior:'smooth'})"}">
-                        ${s.isOnline ? 'Daftar Les Online →' : 'Info & Daftar →'}
-                    </button>
+                    <button class="btn-outline btn-small" style="margin-top: 1rem;" onclick="alert('Info lebih lanjut hubungi kontak kami')">Detail <i class="fas fa-arrow-right"></i></button>
                 </div>
             `).join('');
         }
@@ -821,7 +1250,7 @@
         "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1510915362610-c9b64f04395d?w=600&h=500&fit=crop",
+        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1458560871784-56d23406c091?w=600&h=500&fit=crop",
@@ -829,7 +1258,7 @@
         "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=500&fit=crop",
         "https://images.unsplash.com/photo-1511192336575-9a79c445635e?w=600&h=500&fit=crop",
-        "https://images.unsplash.com/photo-1501612780327-45045538702b?w=600&h=500&fit=crop"
+        "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&h=500&fit=crop"
     ];
     
     function loadGallery() {
@@ -841,6 +1270,7 @@
                     <div class="gallery-overlay"><i class="fas fa-search-plus"></i> Lihat</div>
                 </div>
             `).join('');
+            // Add click event for lightbox effect
             document.querySelectorAll('.gallery-item').forEach(item => {
                 item.addEventListener('click', () => {
                     const imgSrc = item.querySelector('img').src;
@@ -852,12 +1282,12 @@
     
     // ==================== ARTICLES (6 artikel SEO) ====================
     const articlesData = [
-        { title: "10 Teknik Gitar yang Wajib Dikuasai Pemula", meta: "1 April 2025 • 6 min baca", desc: "Pelajari chord dasar hingga teknik picking yang benar agar cepat mahir bermain gitar.", icon: "fa-guitar" },
-        { title: "Panduan Memilih Kursus Musik yang Kredibel", meta: "25 Maret 2025 • 5 min baca", desc: "Tips memilih tempat kursus dengan kurikulum terbaik dan instruktur profesional bersertifikat.", icon: "fa-school" },
-        { title: "Cara Menjaga Kesehatan Vokal Sebelum Pentas", meta: "18 Maret 2025 • 4 min baca", desc: "Latihan pernapasan dan pemanasan vokal yang efektif untuk penyanyi agar tampil maksimal.", icon: "fa-microphone-alt" },
-        { title: "Perkembangan Musik Digital: Peluang untuk Musisi", meta: "10 Maret 2025 • 7 min baca", desc: "Manfaatkan teknologi untuk produksi dan distribusi musik Anda di era digital.", icon: "fa-headphones" },
-        { title: "5 Kesalahan Fatal Saat Belajar Piano Otodidak", meta: "5 Maret 2025 • 4 min baca", desc: "Hindari kebiasaan buruk yang sering dilakukan pemula piano dan solusinya.", icon: "fa-piano" },
-        { title: "Tips Mengatasi Grogi Saat Tampil di Atas Panggung", meta: "28 Februari 2025 • 5 min baca", desc: "Strategi mental dan persiapan teknis untuk tampil percaya diri di depan umum.", icon: "fa-heart" }
+        { title: "10 Teknik Gitar yang Wajib Dikuasai Pemula", meta: "1 April 2025 • 6 min baca", desc: "Pelajari chord dasar hingga teknik picking yang benar agar cepat mahir bermain gitar.", img: "https://images.unsplash.com/photo-1510915362610-c9b64f04395d?w=600&h=400&fit=crop" },
+        { title: "Panduan Memilih Kursus Musik yang Kredibel", meta: "25 Maret 2025 • 5 min baca", desc: "Tips memilih tempat kursus dengan kurikulum terbaik dan instruktur profesional bersertifikat.", img: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&h=400&fit=crop" },
+        { title: "Cara Menjaga Kesehatan Vokal Sebelum Pentas", meta: "18 Maret 2025 • 4 min baca", desc: "Latihan pernapasan dan pemanasan vokal yang efektif untuk penyanyi agar tampil maksimal.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop" },
+        { title: "Perkembangan Musik Digital: Peluang untuk Musisi", meta: "10 Maret 2025 • 7 min baca", desc: "Manfaatkan teknologi untuk produksi dan distribusi musik Anda di era digital.", img: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop" },
+        { title: "5 Kesalahan Fatal Saat Belajar Piano Otodidak", meta: "5 Maret 2025 • 4 min baca", desc: "Hindari kebiasaan buruk yang sering dilakukan pemula piano dan solusinya.", img: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=600&h=400&fit=crop" },
+        { title: "Tips Mengatasi Grogi Saat Tampil di Atas Panggung", meta: "28 Februari 2025 • 5 min baca", desc: "Strategi mental dan persiapan teknis untuk tampil percaya diri di depan umum.", img: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&h=400&fit=crop" }
     ];
     
     function loadArticles() {
@@ -865,7 +1295,7 @@
         if(container) {
             container.innerHTML = articlesData.map((art, idx) => `
                 <div class="article-card" data-aos="fade-up" data-aos-delay="${idx * 80}">
-                    <div class="article-img"><i class="fas ${art.icon} fa-4x"></i></div>
+                    <div class="article-img"><img src="${art.img}" alt="${art.title}" style="width:100%; height:100%; object-fit:cover;"></div>
                     <div class="article-content">
                         <h3>${art.title}</h3>
                         <div class="article-meta"><i class="far fa-calendar-alt"></i> ${art.meta}</div>
@@ -915,57 +1345,68 @@
         }
     }
     
-    // ==================== FORM KHUSUS LES ONLINE ====================
-    const onlineSubmitBtn = document.getElementById('submitOnlineFormBtn');
-    if(onlineSubmitBtn) {
-        onlineSubmitBtn.addEventListener('click', function() {
-            const name = document.getElementById('onlineName')?.value.trim();
-            const email = document.getElementById('onlineEmail')?.value.trim();
-            const phone = document.getElementById('onlinePhone')?.value.trim();
-            const instrument = document.getElementById('onlineInstrument')?.value;
-            const level = document.getElementById('onlineLevel')?.value;
-            const message = document.getElementById('onlineMessage')?.value.trim();
-            const fb = document.getElementById('onlineFormFeedback');
-            
-            if(!name || !email || !phone) {
-                fb.innerHTML = "⚠️ Nama, email, dan nomor WhatsApp wajib diisi!";
-                fb.style.color = "#FFB347";
-                setTimeout(() => fb.innerHTML = "", 3000);
-                return;
-            }
-            if(!email.includes('@') || !email.includes('.')) {
-                fb.innerHTML = "⚠️ Email tidak valid!";
-                fb.style.color = "#FFB347";
-                return;
-            }
-            if(!instrument) {
-                fb.innerHTML = "⚠️ Silakan pilih instrumen yang ingin dipelajari!";
-                fb.style.color = "#FFB347";
-                return;
-            }
-            
-            console.log('Pendaftaran Les Online:', { name, email, phone, instrument, level, message, type: 'LES_ONLINE' });
-            
-            fb.innerHTML = "✅ Pendaftaran Les Online berhasil! Tim kami akan menghubungi via WhatsApp maksimal 1x24 jam.";
-            fb.style.color = "#A5D6A5";
-            
-            // Reset form
-            document.getElementById('onlineName').value = '';
-            document.getElementById('onlineEmail').value = '';
-            document.getElementById('onlinePhone').value = '';
-            document.getElementById('onlineInstrument').selectedIndex = 0;
-            document.getElementById('onlineLevel').selectedIndex = 0;
-            document.getElementById('onlineMessage').value = '';
-            
-            setTimeout(() => fb.innerHTML = "", 5000);
-        });
+    // ==================== PRICING (3 paket) ====================
+    const pricingData = [
+        { name: "Basic", price: "499k", duration: "/bulan", features: ["4x pertemuan", "Materi dasar", "Sertifikat", "Akses grup diskusi"], popular: false },
+        { name: "Pro", price: "899k", duration: "/bulan", features: ["8x pertemuan", "Materi intermediate", "Sertifikat + evaluasi", "Konsultasi mentor", "Rekaman demo"], popular: true },
+        { name: "Private", price: "1.499k", duration: "/bulan", features: ["4x private 1-on-1", "Jadwal fleksibel", "Materi customized", "Full mentoring", "Akses studio"], popular: false }
+    ];
+    
+    function loadPricing() {
+        const container = document.getElementById('pricing-grid');
+        if(container) {
+            container.innerHTML = pricingData.map(p => `
+                <div class="pricing-card ${p.popular ? 'popular' : ''}" data-aos="flip-left">
+                    ${p.popular ? '<div style="background:var(--primary); color:white; border-radius:20px; padding:4px 12px; display:inline-block; margin-bottom:1rem;">Paling Populer</div>' : ''}
+                    <h3>${p.name}</h3>
+                    <div class="pricing-price">Rp ${p.price}<small>${p.duration}</small></div>
+                    <ul>${p.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('')}</ul>
+                    <button class="btn-primary btn-small" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Pilih Paket</button>
+                </div>
+            `).join('');
+        }
     }
     
-    // ==================== FORM KONTAK UMUM ====================
+    // ==================== FAQ (8 pertanyaan) ====================
+    const faqData = [
+        { q: "Apakah ada trial class gratis?", a: "Ya! Kami menyediakan 1x trial class gratis untuk semua program. Silakan hubungi kami untuk jadwal." },
+        { q: "Berapa lama durasi setiap pertemuan?", a: "Setiap pertemuan berdurasi 60 menit untuk kelas reguler, dan 90 menit untuk kelas private." },
+        { q: "Apakah ada sertifikat setelah selesai kursus?", a: "Tentu! Setiap siswa yang menyelesaikan level akan mendapatkan sertifikat resmi dari Kelas Musik." },
+        { q: "Bisa pilih jadwal sendiri?", a: "Untuk kelas private, jadwal sangat fleksibel. Untuk kelas grup, tersedia beberapa pilihan jadwal." },
+        { q: "Usia minimal berapa untuk ikut kursus?", a: "Kami menerima siswa mulai usia 6 tahun hingga dewasa. Ada kelas khusus anak dan remaja." },
+        { q: "Apakah harus memiliki alat musik sendiri?", a: "Tidak wajib. Studio kami menyediakan alat musik yang bisa digunakan selama sesi belajar." },
+        { q: "Bagaimana sistem pembayarannya?", a: "Pembayaran bisa per bulan atau per paket. Transfer bank, QRIS, atau datang langsung ke studio." },
+        { q: "Apakah instruktur bersertifikat?", a: "Semua instruktur kami adalah profesional dengan pengalaman mengajar minimal 3 tahun dan sertifikasi." }
+    ];
+    
+    function loadFAQ() {
+        const container = document.getElementById('faq-grid');
+        if(container) {
+            container.innerHTML = faqData.map((faq, idx) => `
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="${idx * 30}">
+                    <div class="faq-question">
+                        <span><i class="fas fa-question-circle" style="color:var(--primary); margin-right:10px;"></i> ${faq.q}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">${faq.a}</div>
+                </div>
+            `).join('');
+            
+            // Add click event for FAQ
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        }
+    }
+    
+    // ==================== FORM HANDLER ====================
     document.getElementById('submitFormBtn')?.addEventListener('click', function() {
         const name = document.getElementById('nameInput')?.value.trim();
         const email = document.getElementById('emailInput')?.value.trim();
         const phone = document.getElementById('phoneInput')?.value.trim();
+        const program = document.getElementById('programSelect')?.value;
         const msg = document.getElementById('msgInput')?.value.trim();
         const fb = document.getElementById('formFeedback');
         
@@ -984,10 +1425,12 @@
         fb.innerHTML = "✅ Terima kasih! Tim kami akan menghubungi Anda maksimal 1x24 jam.";
         fb.style.color = "#D4F1F9";
         
+        // Reset form
         document.getElementById('nameInput').value = '';
         document.getElementById('emailInput').value = '';
         document.getElementById('phoneInput').value = '';
         document.getElementById('msgInput').value = '';
+        if(document.getElementById('programSelect')) document.getElementById('programSelect').selectedIndex = 0;
         
         setTimeout(() => fb.innerHTML = "", 4000);
     });
@@ -1008,6 +1451,7 @@
         if(window.scrollY > 500) backToTop?.classList.add('show');
         else backToTop?.classList.remove('show');
         
+        // Active link
         const sections = document.querySelectorAll('section[id]');
         const scrollPos = window.scrollY + 200;
         sections.forEach(sec => {
@@ -1060,12 +1504,11 @@
     loadGallery();
     loadArticles();
     loadTestimonials();
+    loadPricing();
+    loadFAQ();
     
     // Update footer year
-    const footerYear = document.querySelector('footer p');
-    if(footerYear) {
-        footerYear.innerHTML = `&copy; ${new Date().getFullYear()} Kelas Musik Indonesia — Membangun Generasi Musisi Berprestasi | <i class="fas fa-certificate"></i> Terpercaya Sejak 2013`;
-    }
+    document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} Kelas Musik Indonesia`;
     
     console.log("Website Kelas Musik berhasil dimuat - Total baris kode 2100+");
 </script>
